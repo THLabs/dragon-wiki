@@ -29,15 +29,20 @@ $app = new \Slim\Slim();
 // GET route
 function renderPage($pagename){
     $filename = 'content/'.$pagename.'.md';
+    $page = array();
     if(file_exists($filename)){
-        $content = Parsedown::instance()->text(file_get_contents($filename));
-        $pagename = ucfirst($pagename);
+        $page['content'] = Parsedown::instance()->text(file_get_contents($filename));
+        $page['name'] = ucfirst($pagename);
     }else{
-        $content = Parsedown::instance()->text(file_get_contents('content/404.md'));
-        $pagename = '404: Page Not Found';
+        $page['content'] = Parsedown::instance()->text(file_get_contents('content/404.md'));
+        $page['name'] = '404: Page Not Found';
     }
-
-    include '../app/template.php';
+    
+    if(file_exists('../templates/'.$pagename.'.php')){
+        include '../templates/'.$pagename.'.php';
+    }else{
+        include '../templates/default.php';
+    }
 }
 $app->get(
     '/',
