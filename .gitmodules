@@ -1,6 +1,6 @@
-[submodule "lib/Slim"]
+[submodule "Slim"]
 	path = lib/Slim
 	url = https://github.com/slimphp/Slim.git
-[submodule "lib/Parsedown"]
+[submodule "Parsedown"]
 	path = lib/Parsedown
 	url = https://github.com/erusev/parsedown.git
