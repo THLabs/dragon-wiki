@@ -9,15 +9,15 @@
 
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.grey-red.min.css" /> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Roboto+Condensed|Roboto+Mono|Roboto+Slab">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:700,400italic,400|Roboto+Condensed:300|Roboto+Mono|Roboto+Slab" >
     <link rel="stylesheet" href="/css/highlight.css">
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
 
-<body>
+<body class="dragon-home">
     <div class="dragon-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
-        <header class="dragon-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <header class="dragon-header mdl-layout__header mdl-layout__header--waterfall mdl-color--white mdl-color-text--grey-800">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title"><a href="/">dragon</a></span>
                 <div class="mdl-layout-spacer"></div>
@@ -37,7 +37,9 @@
         <main class="dragon-main mdl-layout__content">
             <div class="dragon-container mdl-typography--text-center">
                 <div class="dragon-content mdl-color-text--grey-800">
+
                     <?=$page['content']?>
+
                 </div>
             </div>
             
