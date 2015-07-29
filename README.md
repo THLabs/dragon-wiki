@@ -1,4 +1,4 @@
-# TH Wiki
+# Dragon Wiki
 
 A __super-simple__, __markdown-driven__, and __database-free__ wiki.
 
