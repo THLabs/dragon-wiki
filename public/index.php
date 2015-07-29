@@ -2,7 +2,7 @@
 /**
  * Step 1: Require the Slim Framework
  */
-require '../lib/Slim/Slim.php';
+require '../lib/Slim/Slim/Slim.php';
 require '../lib/Parsedown/Parsedown.php';
 
 \Slim\Slim::registerAutoloader();
@@ -52,7 +52,6 @@ $app->get(
         renderPage($pagename);
     }
 );
-
 
 // POST route
 /*$app->post(
