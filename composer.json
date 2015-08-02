@@ -1,8 +1,14 @@
 {
+    "name": "thlabs/dragon",
     "require": {
         "slim/slim": "^2.6",
         "erusev/parsedown": "^1.5",
         "mustache/mustache": "^2.8",
         "dearon/slim-mustache": "^0.1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dragon\\": "app/Dragon"
+        }
     }
 }
