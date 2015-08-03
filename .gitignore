@@ -2,3 +2,4 @@
 vendor
 
 *.lock
+/public/content/test-content2.md

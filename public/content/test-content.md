@@ -3,6 +3,10 @@
 ## Heading
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus sagittis lectus, sollicitudin vulputate tortor maximus porta. Donec elementum quis lectus sit amet tristique. _Quisque iaculis metus risus_. Praesent in porta mi. Proin ipsum est, convallis at quam in, ultrices convallis dolor. Pellentesque in nunc nisi. Proin sapien mauris, varius efficitur risus a, porta rhoncus turpis. Nulla nec nibh vulputate, euismod dolor eu, viverra ante. Donec rhoncus ligula ut lorem rutrum pellentesque.
 
+```javascript
+var i = 1;
+```
+
 **Fusce orci orci**, ornare vitae aliquet ut, varius vitae arcu. Mauris a elit lacus. Duis maximus nisi sem, quis rhoncus nulla suscipit ut. Nullam varius aliquam semper. Sed est ante, suscipit ```nec imperdiet at```, tempor a nisi. Sed tempor augue quis nibh suscipit, eget bibendum nisl ornare. Vestibulum tempor, diam eu sollicitudin lacinia, sem est ornare felis, consectetur tempor ipsum massa sed ante. Proin at egestas lectus. Proin tristique erat a sapien ornare, non placerat magna luctus. Aenean condimentum suscipit porta. Aliquam tincidunt vitae tortor quis venenatis.
 
     <?php
@@ -11,6 +15,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis luctus sagittis le
 
 ### Sub-heading
 Duis a suscipit quam. Donec dapibus suscipit posuere. Praesent convallis interdum augue, id cursus nunc vehicula sit amet. Duis auctor ornare orci, non interdum sapien pharetra vel. Vivamus in pharetra purus, vitae vulputate elit. Sed sodales viverra urna, id iaculis ante consequat malesuada. Sed elementum lacus ut orci rhoncus pretium. Fusce fermentum commodo mollis. Phasellus pretium, nisl sed blandit tincidunt, lectus enim dapibus eros, ac posuere nibh mi in urna. Ut consequat sed quam id sollicitudin. Nulla interdum turpis massa, pretium pellentesque sapien rhoncus eu. Donec vitae eros nec enim convallis egestas.
+
+![An image](/content/img/test_1.jpg)
 
 Integer vehicula suscipit velit, quis rhoncus erat euismod eu. Morbi eget lectus quis ipsum sodales eleifend. Nulla facilisi. Aliquam ultrices ultrices molestie. Sed porta eget libero sit amet hendrerit. Sed et gravida nulla. Proin tincidunt aliquam mi in vulputate.
 
@@ -28,3 +34,5 @@ Nunc odio nulla, volutpat nec tincidunt ut, dictum a erat. Duis sed imperdiet to
 Aliquam vulputate arcu vitae velit tristique, eu sodales erat faucibus. Proin placerat, sem sit amet semper interdum, mauris lectus rhoncus odio, ac faucibus quam mi tempus libero. Nulla facilisi. Ut vitae nunc dignissim, euismod ante sed, volutpat sapien. Morbi varius risus eget sem egestas efficitur. Donec placerat mauris felis, ac posuere quam bibendum nec. Praesent sagittis laoreet imperdiet. Phasellus erat nunc, maximus vitae arcu luctus, accumsan tincidunt sem. Maecenas sodales augue vitae eros rhoncus, id pulvinar dolor tincidunt.
 
 Aliquam neque orci, consequat at gravida ut, ullamcorper ut augue. Pellentesque tristique massa a est placerat vehicula. Curabitur dictum semper tortor nec ullamcorper. Aenean porttitor, magna sit amet tincidunt fermentum, elit massa ultrices nisl, quis gravida leo quam mattis ante. Praesent id luctus mi. Nunc sit amet efficitur purus. Proin tempor scelerisque nisi vitae luctus. Integer lobortis faucibus lorem vel cursus. Donec et mi eu nunc laoreet facilisis. Vestibulum ut consequat risus, sit amet congue massa. Curabitur sed tristique urna.
+                        
+                        
