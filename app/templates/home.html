@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {{ name }}
     </title>
@@ -35,8 +36,9 @@
             </div>
         </header>
         <main class="dragon-main mdl-layout__content">
-            <div class="dragon-container mdl-typography--text-center">
-                <div class="dragon-content mdl-color-text--grey-800">
+            <div class="dragon-container mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+                <div class="dragon-content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col mdl-typography--text-center">
 
                     {{{ content }}}
 
@@ -45,9 +47,10 @@
             
             <footer class="dragon-footer mdl-mini-footer">
                 <div class="mdl-mini-footer--left-section">
-                    <ul class="mdl-mini-footer--link-list">
-                        <li>&copy;<?=date('Y')?> THLabs.net</li>
-                    </ul>
+                    &copy;<?=date('Y')?> THLabs.net
+                </div>
+                <div class="mdl-mini-footer--right-section"> 
+                    Powered by <a href="https://github.com/THLabs/dragon-wiki">Dragon</a>
                 </div>
             </footer>
             
@@ -55,9 +58,8 @@
     </div>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
     <script src="/js/highlight.pack.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
+    <script src="/js/dragon.js"></script>
+    
 </body>
 
 </html>
