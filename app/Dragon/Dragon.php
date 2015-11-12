@@ -42,7 +42,15 @@ class Dragon extends \Slim\Slim {
         $this->post(
             '/:pagename/save',
             function($pagename){
-                $this->savePage($pagename,$this->request->post());
+                $this->savePage($pagename, $this->request->post());
+            }
+        );
+        
+        $this->post(
+            '/content/upload',
+            function(){
+                // TODO: Handle errors for (e.g.) incompatable files, wrong file size
+                echo json_encode(['path' => $this->saveImage((object)$_FILES['file']) ]);
             }
         );
         
@@ -125,6 +133,25 @@ class Dragon extends \Slim\Slim {
         // TODO: content versioning
         
         $this->renderPage($pagename);
+    }
+    
+    /**
+     *  Saves posted image to content images folder
+     *
+     *  @param  $data       file data object
+     *  @return             the public path of the saved file
+     */
+    public function saveImage($data){
+        $fileinfo = (object)pathinfo($data->name);
+        $filename = 'content/img/'.$fileinfo->filename.'-'.time().'.'.$fileinfo->extension;
+        
+        // move uploaded image to destination
+        move_uploaded_file($data->tmp_name, $filename);
+        
+        // TODO: Resize image
+        
+        return '/'.$filename;
+        
     }
     
 }
