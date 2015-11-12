@@ -2,10 +2,10 @@ vendor
 *.lock
 
 # App Content
-/public/content/*
+public/content/*
 
 # IDE-specific
-/.idea
-/dragon-wiki.iml
+.idea/
+dragon-wiki.iml
 
 
