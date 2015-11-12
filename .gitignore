@@ -1,5 +1,11 @@
-.idea
 vendor
-
 *.lock
-/public/content/test-content2.md
+
+# App Content
+/public/content/*
+
+# IDE-specific
+/.idea
+/dragon-wiki.iml
+
+
