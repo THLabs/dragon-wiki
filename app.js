@@ -4,15 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var hbs = require('hbs');
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerHelper("block", function(name){
+  var blocks = this._blocks;
+  content = blocks && blocks[name];
+  return content ? content.join('\n') : null;
+});
+hbs.registerHelper("contentFor", function(name, options){
+  var blocks = this._blocks || (this._blocks = {});
+  block = blocks[name] || (blocks[name] = []); //Changed this to [] instead of {}
+  block.push(options.fn(this));
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,7 +33,6 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
