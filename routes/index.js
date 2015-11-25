@@ -7,11 +7,14 @@ var express = require('express'),
  * @param pagename
  * @param callback
  */
-function getRenderedPage(pagename, callback){
+function getRenderedPage(pagename, callback) {
   console.log(pagename);
   var fs = require('fs');
   //  @todo: sanitize pagename input
   fs.readFile("public/content/" + pagename + ".md", 'utf8', function (err, data) {
+    if (err) {
+      return getRenderedPage('404', callback);
+    }
     var page = {},
         title = pagename,
         showdown = require('showdown'),
@@ -34,11 +37,14 @@ function getRenderedPage(pagename, callback){
  * @param pagename
  * @param callback
  */
-function getRawPage(pagename, callback){
-  console.log("edit: "+pagename);
+function getRawPage(pagename, callback) {
+  console.log("edit: " + pagename);
   var fs = require('fs');
   //  @todo: sanitize pagename input
   fs.readFile("public/content/" + pagename + ".md", 'utf8', function (err, data) {
+    if (err) {
+      return getRenderedPage('404', callback);
+    }
     var page = {},
         title = pagename;
 
@@ -55,7 +61,7 @@ function getRawPage(pagename, callback){
  * Standard page route
  */
 router.get('/:pagename', function (req, res) {
-  getRenderedPage(req.params.pagename, function(page){
+  getRenderedPage(req.params.pagename, function (page) {
     res.render('default', page);
   });
 });
@@ -64,17 +70,37 @@ router.get('/:pagename', function (req, res) {
  * Home page route
  */
 router.get('/', function (req, res, next) {
-  getRenderedPage('home', function(page){
+  getRenderedPage('home', function (page) {
     res.render('home', page);
   });
 });
 
+/**
+ * Edit page route
+ */
 router.get('/:pagename/edit', function (req, res) {
-  getRawPage(req.params.pagename, function(page){
+  getRawPage(req.params.pagename, function (page) {
     res.render('_edit', page);
   });
 });
 
+/**
+ * POST save page route
+ */
+router.post('/:pagename/save', function (req, res) {
+  var fs = require('fs');
+  var pagename = req.params.pagename;
+
+  fs.writeFile('public/content/'+pagename+'.md', req.body.content, function(err){
+    if(err) {
+      console.err(err);
+      return;
+    }
+    getRenderedPage(pagename, function (page) {
+      res.render('default', page);
+    });
+  });
+})
 
 
 module.exports = router;
