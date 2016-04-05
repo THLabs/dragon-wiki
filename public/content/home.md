@@ -1,6 +1,6 @@
 # Simple wiki platform
 
-<p class="intro">This is a very simple wiki, built using <a href="http://slimframework.com">Slim</a>, <a href="http://parsedown.org">Parsedown</a>, <a href="http://highlightjs.org/">hightlight.js</a>, and the <a href="http://www.getmdl.io/">Material Design Lite</a> style kit.</p>
+<p class="intro">This is a very simple wiki, built in <a href="http://nodejs.org">node.js</a> using <a href="http://expressjs.com">Express</a>, <a href="https://github.com/showdownjs/showdown">Showdown</a>, <a href="http://highlightjs.org/">hightlight.js</a>, and the <a href="http://www.getmdl.io/">Material Design Lite</a> style kit.</p>
 
 Here's some [Test Content](test-content).
 
