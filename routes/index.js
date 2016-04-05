@@ -1,5 +1,8 @@
 var express = require('express'),
-    router = express.Router();
+    router = express.Router(),
+    multer  = require('multer'),
+    upload = multer({ dest: 'public/content/img/' });
+
 
 /**
  * Get the rendered version of the page content for specified page. Returns the HTML for the page.
@@ -60,7 +63,7 @@ function getRawPage(pagename, callback) {
 
 function savePage(pagename, content, callback) {
   var fs = require('fs');
-
+  //  @todo: sanitize pagename input
   fs.writeFile('public/content/' + pagename + '.md', content, function (err) {
     if (err) {
       console.err(err);
@@ -113,10 +116,10 @@ router.post('/:pagename/save', function (req, res) {
 /**
  * POST save image route
  */
-/*router.post('/content/upload', upload.single('file'), function (req, res) {
- // TODO: Handle errors for (e.g.) incompatable files, wrong file size
- console.log(req.files);
- //res.json({"path": saveImage(req.files)});
- });*/
+router.post('/content/upload', upload.single('file'), function (req, res) {
+  // TODO: Handle errors for (e.g.) incompatable files, wrong file size
+  console.log(req.file);
+  res.json({"path": '/content/img/'+req.file.filename});
+});
 
 module.exports = router;
