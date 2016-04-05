@@ -20,12 +20,13 @@ function getRenderedPage(pagename, callback) {
         showdown = require('showdown'),
         converter = new showdown.Converter();
 
-    console.log(data);
+    //sconsole.log(data);
 
     page.url = title;
     title = title.replace("-", " ");
     page.name = title.charAt(0).toUpperCase() + title.slice(1);
     page.content = converter.makeHtml(data);
+    page.date = (new Date()).getFullYear();
 
     callback(page);
   });
@@ -55,6 +56,22 @@ function getRawPage(pagename, callback) {
 
     callback(page);
   });
+}
+
+function savePage(pagename, content, callback) {
+  var fs = require('fs');
+
+  fs.writeFile('public/content/' + pagename + '.md', content, function (err) {
+    if (err) {
+      console.err(err);
+      return;
+    }
+    getRenderedPage(pagename, callback);
+  });
+}
+
+function saveImage(file) {
+  console.log(file);
 }
 
 /**
@@ -88,19 +105,18 @@ router.get('/:pagename/edit', function (req, res) {
  * POST save page route
  */
 router.post('/:pagename/save', function (req, res) {
-  var fs = require('fs');
-  var pagename = req.params.pagename;
-
-  fs.writeFile('public/content/'+pagename+'.md', req.body.content, function(err){
-    if(err) {
-      console.err(err);
-      return;
-    }
-    getRenderedPage(pagename, function (page) {
-      res.render('default', page);
-    });
+  savePage(req.params.pagename, req.body.content, function (page) {
+    res.redirect('/' + req.params.pagename);
   });
-})
+});
 
+/**
+ * POST save image route
+ */
+/*router.post('/content/upload', upload.single('file'), function (req, res) {
+ // TODO: Handle errors for (e.g.) incompatable files, wrong file size
+ console.log(req.files);
+ //res.json({"path": saveImage(req.files)});
+ });*/
 
 module.exports = router;
